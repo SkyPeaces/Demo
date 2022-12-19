@@ -2,20 +2,16 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable("Params", {
-            paramName: {
+        await queryInterface.createTable("Errors", {
+            errCode: {
                 allowNull: false,
                 primaryKey: true,
                 type: Sequelize.STRING,
             },
-            paramValue: {
-                primaryKey: true,
+            errMsg: {
                 type: Sequelize.STRING,
             },
-            paramDesc: {
-                type: Sequelize.STRING,
-            },
-            paramStatus: {
+            errType: {
                 type: Sequelize.STRING,
             },
             createdAt: {
@@ -29,6 +25,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable("Params");
+        await queryInterface.dropTable("Errors");
     },
 };
